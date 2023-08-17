@@ -1,25 +1,21 @@
-import Login from '../pages/Login.vue';
-import Dashboard from '../pages/Dashboard.vue';
-import Error404 from '../pages/errors/404.vue';
-
 export default [
     {
-        path: '/',
-        redirect: 'login'
+        path: "/",
+        redirect: "login",
     },
     {
-        path: '/login',
-        name: 'login',
-        component: Login
+        path: "/login",
+        name: "login",
+        component: () => import("../views/LoginView.vue"),
     },
     {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: Dashboard
+        path: "/dashboard",
+        name: "dashboard",
+        component: () => import("../views/DashboardView.vue"),
     },
     {
-        path: '/:pathMatch(.*)*',
-        name: '404',
-        component: Error404
-    }
+        path: "/:pathMatch(.*)*",
+        name: "404",
+        component: () => import("../views/errors/404View.vue"),
+    },
 ];
