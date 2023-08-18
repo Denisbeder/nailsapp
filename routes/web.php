@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('{any}', function () {
     return view('welcome');
-})->where('any', '[\/\-\_\+a-zA-Z0-9]+');
+})
+    ->where('any', '[\/\-\_\+a-zA-Z0-9]+')
+    ->name('main');
