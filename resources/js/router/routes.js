@@ -4,6 +4,10 @@ export default [
         redirect: "login",
     },
     {
+        path: "/logout",
+        name: "logout",
+    },
+    {
         path: "/login",
         name: "login",
         component: () => import("../views/LoginView.vue"),

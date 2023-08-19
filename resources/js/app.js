@@ -1,13 +1,16 @@
 //import "./bootstrap";
 
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import router from "./router";
 import AppComponent from "./components/AppComponent.vue";
 
-const App = createApp({});
+const pinia = createPinia();
+const app = createApp({});
 
-App.use(router);
+app.use(pinia);
+app.use(router);
 
-App.component("AppComponent", AppComponent);
+app.component("AppComponent", AppComponent);
 
-App.mount("#app");
+app.mount("#app");

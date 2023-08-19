@@ -82,12 +82,12 @@
                     </div>
                 </div>
                 <div class="mt-2 space-y-2">
-                    <a
+                    <router-link
                         v-for="item in navigation"
                         :key="item.name"
-                        :href="item.href"
+                        :to="item.href"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                        >{{ item.name }}</a
+                        >{{ item.name }}</router-link
                     >
                 </div>
             </DialogPanel>
@@ -114,6 +114,6 @@ const navigation = [
     { name: "Relatórios", href: "#" },
     { name: "Clientes", href: "#" },
     { name: "Configurações", href: "#" },
-    { name: "Sair", href: "/login" },
+    { name: "Sair", href: "/logout" },
 ];
 </script>

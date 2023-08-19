@@ -101,11 +101,13 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/userStore.js";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
 const router = useRouter();
+const store = useUserStore();
 
 const loading = ref(false);
 
@@ -114,12 +116,14 @@ const form = ref({
     password: "password",
 });
 
-const onLogin = async () => {
+async function onLogin() {
     loading.value = true;
+
     await axios.get("sanctum/csrf-cookie");
     const response = await axios.post("/api/login", form.value);
-    console.log(response);
-    router.push("dashboard");
-    loading.value = false;
-};
+
+    store.setAuthenticated(response.data);
+
+    await router.push("dashboard");
+}
 </script>
